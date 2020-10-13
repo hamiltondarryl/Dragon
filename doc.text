@@ -1,0 +1,47 @@
+1- La première chose que nous devons faire pour tout jeu est de créer un objet de jeu
+
+Nb : Avant de faire cela, nous devons créer une scène que notre jeu peut utiliser. 
+Une scène est essentiellement un ensemble de fonctions qui sont appelées à différents moments du jeu
+
+*** code ***
+
+var scene = new Phaser.Scene("game");
+
+var config = {
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	scene : scene
+};
+
+var game = new Phaser.Game(config);
+
+*** fin de code ***
+
+Dans le fichier "config"
+
+ le "type" represente : est moteur de rendu HTML5 que nous aimerions utiliser. Nous avons les options de: Canvas, WebGL ou Auto. Auto utilise d'abord le moteur WebGL, puis revient au canevas si le navigateur ne le prend pas en charge.   
+ le "width" represente : la largeur du jeu;
+ le "heigh" represente : la hauter du jeu ;
+ le scene represente : ensemble de fonctions qui sont appelées à différents moments du jeu
+----------------------------------------------------------------------------------------------------------------------------------
+
+2- Nous devons maintenant créer les fonctions de scène qui sont exécutées à certains intervalles. Pour notre scène, nous allons utiliser les fonctions suivantes:
+
+    Init - cette fonction est appelée dès que l'objet de jeu est créé. Utile pour configurer des variables telles que la vie, la santé, les munitions, etc.
+    --
+    Preload  - cette fonction est appelée ensuite et est utilisée pour précharger le contenu dans le jeu. Nous voudrons l'utiliser pour précharger les images, l'audio et d'autres éléments dont nous avons besoin pour notre jeu.
+    --
+    Create  - cette fonction est chargée une fois le préchargement terminé. Nous l'utilisons pour configurer les éléments du jeu, peut-être positionner un personnage à un certain point, ajouter du texte au jeu ou positionner un arrière-plan.
+    --
+    Update  - la fonction principale du jeu. La fonction de mise à jour est exécutée 60 fois par seconde (ou autant que le navigateur peut en gérer) et est utilisée pour la logique du jeu telle que le mouvement, l'interaction et la notation.
+    --
+    End  - cette fonction sera appelée une fois le jeu terminé (c'est-à-dire que le joueur n'a plus de vies ou le joueur atteint la fin du niveau)
+    --
+
+PS  : Un lien pour voir tout ce qui se passe au niveau de la scene  grace à la documentation de phaser3
+
+https://photonstorm.github.io/phaser3-docs/Phaser.Types.Scenes.html#.SceneInitCallback
+
+
+Nb : La fonction End est notre propre fonction de scène personnalisée qui ne fait pas partie de l'API Phaser 3.
