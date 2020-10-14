@@ -21,7 +21,6 @@ scene.init = function () {
     this.score_text;
     this.lives_text;
 
-    
 };
 
 // Chargement des assets du jeux
