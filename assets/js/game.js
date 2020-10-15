@@ -11,15 +11,13 @@ let config = {
 
 let game = new Phaser.Game(config);
 
-// Creation du jeu et configuration des variables de jeu
+// Configuration des variables de jeu(vie, score, time, vitesse)
 scene.init = function () {
 
     this.score = 0;
     this.lives = 3;
     this.speed = 1.5;
     this.dragon_move = 1;
-    this.score_text;
-    this.lives_text;
 
 };
 
@@ -42,7 +40,7 @@ scene.create = function() {
 
     //Ajout des textes
     this.score_text = this.add.text(10, 10, "Score : " + this.score, {fontSize : "20px", fill : "#000"})
-    this.lives_text = this.add.text(680, 10, "Lives : " + this.lives, {fontSize : "20px", fill : "#000"})
+    this.lives_text = this.add.text(16, this.sys.game.config.height -50, "Lives : " + this.lives, {fontSize : "20px", fill : "#000"})
 
     //Ajout du joueur
     this.player = this.add.sprite(100, 130, 'player');
@@ -52,6 +50,12 @@ scene.create = function() {
     this.dragon = this.add.sprite(300, 200, "dragon");
     this.dragon.setScale(0.5);
 
+    //Ajout de l'icon 
+    this.icon = this.add.sprite(200, 300, "icon");
+    this.icon.setScale(0.5)
+
+
+    console.log(this.input);
     
     
 };
