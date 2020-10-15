@@ -55,9 +55,8 @@ scene.create = function() {
     this.icon.setScale(0.5)
 
 
-    console.log(this.input);
-    
-    
+    console.log(this.input.keyboard.on());
+
 };
 
 
